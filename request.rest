@@ -9,11 +9,21 @@ GET http://localhost:3000/dCharacters/4
 POST http://localhost:3000/dCharacters
 Content-Type: application/json
 
-{   "id":   5,
+{ 
+    "name": "Lightning",
+    "fairyTale": "Cars",
+    "bestFriend": "Mater"
+}
+
+###
+
+PUT http://localhost:3000/dCharacters/4
+Content-Type: application/json
+
+{ 
     "name": "Lightning McQueen",
     "fairyTale": "Cars",
-    "bestFriend": "Mater",
-    "img": ""
+    "bestFriend": "Mater"
 }
 
 ###
