@@ -58,4 +58,15 @@ app.get('/dCharacters/:dCharacterId', (req, res) => {
             }
     })
 
+app.post('/dCharacters', (req, res) => {
+    dCharacters.push(req.body)
+    res.json(req.body)
+})
+
+app.delete('/dCharacters/:id', (req, res) => {
+    dCharacters.splice(req.params.id, 1)
+    res.json(req.body)
+
+})
+
 app.listen(port, () => console.log(`listening at http://localhost:${port}`))
