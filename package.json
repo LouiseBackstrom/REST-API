@@ -16,8 +16,11 @@
   "bugs": {
     "url": "https://github.com/LouiseBackstrom/rest-api/issues"
   },
-  "homepage": "https://github.com/LouiseBackstrom/rest-api#readme",
+  "homepage": "https://louisebackstrom.github.io/rest-api/",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
