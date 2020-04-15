@@ -3,3 +3,19 @@ GET http://localhost:3000/dCharacters
 ###
 
 GET http://localhost:3000/dCharacters/4
+
+###
+
+POST http://localhost:3000/dCharacters
+Content-Type: application/json
+
+{   "id":   5,
+    "name": "Lightning McQueen",
+    "fairyTale": "Cars",
+    "bestFriend": "Mater",
+    "img": ""
+}
+
+###
+
+DELETE  http://localhost:3000/dCharacters/3
