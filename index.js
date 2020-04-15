@@ -59,10 +59,53 @@ app.get('/dCharacters/:dCharacterId', (req, res) => {
     })
 
 app.post('/dCharacters', (req, res) => {
-    dCharacters.push(req.body)
+    if (!req.body.name ||
+        !req.body.fairyTale.toString() ||
+        !req.body.bestFriend.toString()){
+        res.status(400).send()
+        
+     } else {
+        const newId = dCharacters[dCharacters.length-1].id+1
+        dCharacters.push({
+           id: newId,
+           name: req.body.name,
+           fairyTale: req.body.fairyTale,
+           bestFriend: req.body.bestFriend
+        });
+     }
     res.json(req.body)
 })
 
+app.put('/dCharacters/:id', function(req, res) {
+    if (!req.body.name ||
+        !req.body.fairyTale.toString() ||
+        !req.body.bestFriend.toString() ||
+        !req.params.id.toString().match(/^[0-9]{3,}$/g)){
+        res.status(400)
+    } else {
+       const updateIndex = dCharacters.map(function(dCharacter){
+          return dCharacter.id;
+       }).indexOf(parseInt(req.params.id));
+       
+       if(updateIndex === -1){
+        dCharacters.push({
+             id: req.params.id,
+             name: req.body.name,
+             bestFriend: req.body.bestFriend,
+             fairyTale: req.body.fairyTale
+          })
+  
+       } else {
+        dCharacters[updateIndex] = {
+             id: req.params.id,
+             name: req.body.name,
+             bestFriend: req.body.bestFriend,
+             fairyTale: req.body.fairyTale
+          }
+       }
+    }
+ })
+ 
 app.delete('/dCharacters/:id', (req, res) => {
     dCharacters.splice(req.params.id, 1)
     res.json(req.body)
