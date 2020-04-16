@@ -17,14 +17,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/dCharacters/4
-Content-Type: application/json
-
-{ 
-    "name": "Lightning McQueen",
-    "fairyTale": "Cars",
-    "bestFriend": "Mater"
-}
+PUT http://localhost:3000/dCharacters
 
 ###
 

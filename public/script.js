@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/dCharacters").then((response) => {
+fetch("/dCharacters").then((response) => {
     return response.json()
 }).then((dCharacters) => {
     console.log(dCharacters)
@@ -11,12 +11,15 @@ function AllDCharacters(dCharacters) {
     dCharacters.forEach(dCharacter => {
         let dCharacterName = document.createElement("h4")
         dCharacterName.innerText = dCharacter.name
+        let dCharacterFairyTale = document.createElement("h4")
+        dCharacterFairyTale.innerText = dCharacter.fairyTale
         let dCharacterBestFriend = document.createElement("h4")
         dCharacterBestFriend.innerText = dCharacter.bestFriend
 
         let dCharacterDiv = document.createElement("div")
         
         dCharacterDiv.appendChild(dCharacterName)
+        dCharacterDiv.appendChild(dCharacterFairyTale)
         dCharacterDiv.appendChild(dCharacterBestFriend)
 
         alldCharactersContainer.appendChild(dCharacterDiv)
@@ -29,7 +32,7 @@ function getOne() {
 
     const id = document.getElementById("idInput").value 
     console.log(id)
-    fetch("http://localhost:3000/dCharacters/" + id).then((response) => {
+    fetch("/dCharacters/" + id).then((response) => {
         if(response.status === 404) {
             printOne()
         } else {
@@ -48,10 +51,13 @@ function printOne(dCharacter) {
     if(dCharacter) {
         let dCharacterName = document.createElement("h4")
         dCharacterName.innerText = dCharacter.name
+        let dCharacterFairyTale = document.createElement("h4")
+        dCharacterFairyTale.innerText = dCharacter.fairyTale
         let dCharacterBestFriend = document.createElement("h4")
         dCharacterBestFriend.innerText = dCharacter.bestFriend
         
         dCharacterContainer.appendChild(dCharacterName)
+        dCharacterContainer.appendChild(dCharacterFairyTale)
         dCharacterContainer.appendChild(dCharacterBestFriend)
 
     } else {
@@ -60,4 +66,32 @@ function printOne(dCharacter) {
         dCharacterContainer.appendChild(errorResponse)
 
     }
+}
+
+window.addEventListener('load', loadPage)
+
+function loadPage() {
+const form = document.querySelector('form')
+form.addEventListener('submit', createNew)
+}
+
+function createNew(event) {
+    event.stopPropagation()
+    event.preventDefault()
+
+    const formData = new FormData(event.target)
+    const dCharacter = {}
+    for (const pair of formData.entries()) {
+        const [key, value] = pair
+        dCharacter[key] = value
+    }
+
+    fetch("/dCharacters", {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(dCharacter)
+});
+   
 }

@@ -3,30 +3,31 @@ const app = express()
 const port = 3000
 
 //disney characters
+let idIndex = 5
 const dCharacters = [
     {   
-        id: 0,
+        id: 1,
         name: "Elsa",
         fairyTale: "Frost",
         bestFriend: "Anna",
         img: ""
     },
     {   
-        id: 1,
-        name: "Robin Hood",
-        fairyTale: "Robin Hood",
-        bestFriend: "Piglet",
-        img: ""
-    },
-    {   
         id: 2,
-        name: "Winnie the Pooh",
+        name: "Robin Hood",
         fairyTale: "Robin Hood",
         bestFriend: "Little John",
         img: ""
     },
     {   
         id: 3,
+        name: "Winnie the Pooh",
+        fairyTale: "Winnie the Pooh",
+        bestFriend: "Piglet",
+        img: ""
+    },
+    {   
+        id: 4,
         name: "Princess Jasmine",
         fairyTale: "Aladdin",
         bestFriend: "Aladdin",
@@ -59,51 +60,15 @@ app.get('/dCharacters/:dCharacterId', (req, res) => {
     })
 
 app.post('/dCharacters', (req, res) => {
-    if (!req.body.name ||
-        !req.body.fairyTale.toString() ||
-        !req.body.bestFriend.toString()){
-        res.status(400).send()
-        
-     } else {
-        const newId = dCharacters[dCharacters.length-1].id+1
-        dCharacters.push({
-           id: newId,
-           name: req.body.name,
-           fairyTale: req.body.fairyTale,
-           bestFriend: req.body.bestFriend
-        });
-     }
-    res.json(req.body)
+    const dCharacter = { id: idIndex++, ...req.body }
+    dCharacters.push(dCharacter)
+    res.status(201).json(dCharacter)
 })
 
 app.put('/dCharacters/:id', function(req, res) {
-    if (!req.body.name ||
-        !req.body.fairyTale.toString() ||
-        !req.body.bestFriend.toString() ||
-        !req.params.id.toString().match(/^[0-9]{3,}$/g)){
-        res.status(400)
-    } else {
-       const updateIndex = dCharacters.map(function(dCharacter){
-          return dCharacter.id;
-       }).indexOf(parseInt(req.params.id));
-       
-       if(updateIndex === -1){
-        dCharacters.push({
-             id: req.params.id,
-             name: req.body.name,
-             bestFriend: req.body.bestFriend,
-             fairyTale: req.body.fairyTale
-          })
-  
-       } else {
-        dCharacters[updateIndex] = {
-             id: req.params.id,
-             name: req.body.name,
-             bestFriend: req.body.bestFriend,
-             fairyTale: req.body.fairyTale
-          }
-       }
-    }
+    dCharacter[req.params.id] = req.body
+    res.json(req.body)
+    
  })
  
 app.delete('/dCharacters/:id', (req, res) => {
@@ -113,3 +78,4 @@ app.delete('/dCharacters/:id', (req, res) => {
 })
 
 app.listen(port, () => console.log(`listening at http://localhost:${port}`))
+
