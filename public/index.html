@@ -13,12 +13,11 @@
     <input id="idInput" type="number">
     <button id="findOne">Hämta Disneyfigur</button>
     <div id="getOne"></div>
-    <form action="">
-    <input id="id" type="number">
-    <input id="name" type="text">
-    <input id="fairyTale" type="text">
-    <button id="bestFriend">Lägg till</button>
+    <form id="create" method='POST'>
+        <input id="name" name="name" type="text" placeholder="name">
+        <input id="fairyTale" name="fairyTale" type="text" placeholder="fairyTale">
+        <input id="bestFriend" name="bestFriend" type="text" placeholder="bestFriend">
+        <button type="submit">Lägg till</button>
     </form>
-    <div id="createNew"></div>
 </body>
 </html>
