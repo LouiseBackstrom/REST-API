@@ -1,24 +1,31 @@
-GET http://localhost:3000/dCharacters
+GET http://localhost:3000/characters
 
 ###
 
-GET http://localhost:3000/dCharacters/4
+GET http://localhost:3000/characters/4
 
 ###
 
-POST http://localhost:3000/dCharacters
+POST http://localhost:3000/characters
 Content-Type: application/json
 
 { 
-    "name": "Lightning",
-    "fairyTale": "Cars",
-    "bestFriend": "Mater"
+    "name": "Anna",
+    "fairyTale": "Frost",
+    "bestFriend": "Els"
 }
 
 ###
 
-PUT http://localhost:3000/dCharacters
+PUT http://localhost:3000/characters/6
+Content-Type: application/json
+
+{  
+    "name": "Anna",
+    "fairyTale": "Frost",
+    "bestFriend": "Elsa"
+}
 
 ###
 
-DELETE  http://localhost:3000/dCharacters/3
+DELETE  http://localhost:3000/characters/6

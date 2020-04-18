@@ -1,28 +1,28 @@
-fetch("/dCharacters").then((response) => {
+fetch("/characters").then((response) => {
     return response.json()
-}).then((dCharacters) => {
-    console.log(dCharacters)
-    AllDCharacters(dCharacters)
+}).then((characters) => {
+    console.log(characters)
+    allCharacters(characters)
 })
 
-function AllDCharacters(dCharacters) {
-    let alldCharactersContainer = document.getElementById("all")
+function allCharacters(characters) {
+    let allCharactersContainer = document.getElementById("all")
     
-    dCharacters.forEach(dCharacter => {
-        let dCharacterName = document.createElement("h4")
-        dCharacterName.innerText = dCharacter.name
-        let dCharacterFairyTale = document.createElement("h4")
-        dCharacterFairyTale.innerText = dCharacter.fairyTale
-        let dCharacterBestFriend = document.createElement("h4")
-        dCharacterBestFriend.innerText = dCharacter.bestFriend
+    characters.forEach(character => {
+        let characterName = document.createElement("h4")
+        characterName.innerText = character.name
+        let characterFairyTale = document.createElement("h4")
+        characterFairyTale.innerText = character.fairyTale
+        let characterBestFriend = document.createElement("h4")
+        characterBestFriend.innerText = character.bestFriend
 
-        let dCharacterDiv = document.createElement("div")
+        let characterDiv = document.createElement("div")
         
-        dCharacterDiv.appendChild(dCharacterName)
-        dCharacterDiv.appendChild(dCharacterFairyTale)
-        dCharacterDiv.appendChild(dCharacterBestFriend)
+        characterDiv.appendChild(characterName)
+        characterDiv.appendChild(characterFairyTale)
+        characterDiv.appendChild(characterBestFriend)
 
-        alldCharactersContainer.appendChild(dCharacterDiv)
+        allCharactersContainer.appendChild(characterDiv)
     })
 }
 
@@ -32,66 +32,72 @@ function getOne() {
 
     const id = document.getElementById("idInput").value 
     console.log(id)
-    fetch("/dCharacters/" + id).then((response) => {
+    fetch("/characters/" + id).then((response) => {
         if(response.status === 404) {
             printOne()
         } else {
             return response.json()
         }
-    }).then((dCharacters) => {
-        console.log(dCharacters)
-        printOne(dCharacters) 
+    }).then((characters) => {
+        console.log(characters)
+        printOne(characters) 
     })
 }
 
-function printOne(dCharacter) {
-    let dCharacterContainer = document.getElementById("getOne")
-    dCharacterContainer.innerHTML = ""
+function printOne(character) {
+    let characterContainer = document.getElementById("getOne")
+    characterContainer.innerHTML = ""
 
-    if(dCharacter) {
-        let dCharacterName = document.createElement("h4")
-        dCharacterName.innerText = dCharacter.name
-        let dCharacterFairyTale = document.createElement("h4")
-        dCharacterFairyTale.innerText = dCharacter.fairyTale
-        let dCharacterBestFriend = document.createElement("h4")
-        dCharacterBestFriend.innerText = dCharacter.bestFriend
+    if(character) {
+        let characterName = document.createElement("h4")
+        characterName.innerText = character.name
+        let characterFairyTale = document.createElement("h4")
+        characterFairyTale.innerText = character.fairyTale
+        let characterBestFriend = document.createElement("h4")
+        characterBestFriend.innerText = character.bestFriend
         
-        dCharacterContainer.appendChild(dCharacterName)
-        dCharacterContainer.appendChild(dCharacterFairyTale)
-        dCharacterContainer.appendChild(dCharacterBestFriend)
+        characterContainer.appendChild(characterName)
+        characterContainer.appendChild(characterFairyTale)
+        characterContainer.appendChild(characterBestFriend)
 
     } else {
         let errorResponse = document.createElement("h4")
         errorResponse.innerText = "Hittade ingen användare :/"
-        dCharacterContainer.appendChild(errorResponse)
+        characterContainer.appendChild(errorResponse)
 
     }
 }
 
-window.addEventListener('load', loadPage)
 
-function loadPage() {
-const form = document.querySelector('form')
+const form = document.getElementById('create')
 form.addEventListener('submit', createNew)
-}
+
 
 function createNew(event) {
     event.stopPropagation()
     event.preventDefault()
 
     const formData = new FormData(event.target)
-    const dCharacter = {}
+    const character = {}
     for (const pair of formData.entries()) {
         const [key, value] = pair
-        dCharacter[key] = value
+        character[key] = value
     }
 
-    fetch("/dCharacters", {
+    fetch("/characters", {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify(dCharacter)
-});
+    body: JSON.stringify(character)
+
+})
+    let createContainer = document.getElementById("message")
    
+    let message = document.createElement("h4")
+    message.innerText = "En ny Disneyfigur har lagts till"
+    createContainer.appendChild(message) 
+
+    setTimeout(function () { 
+        window.location.reload() }, 2000)
 }
