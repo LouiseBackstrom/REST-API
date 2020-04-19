@@ -14,5 +14,3 @@ A REST API with Disney characters. The API has functionality for CRUD and there 
 
 https://github.com/LouiseBackstrom/rest-api
 
-[Demo](https://louisebackstrom.github.io/rest-api/)
-
