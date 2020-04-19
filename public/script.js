@@ -1,7 +1,6 @@
 fetch("/characters").then((response) => {
     return response.json()
 }).then((characters) => {
-    console.log(characters)
     allCharacters(characters)
 })
 
@@ -71,7 +70,6 @@ function printOne(character) {
         let errorResponse = document.createElement("h4")
         errorResponse.innerText = "Hittade ingen användare :/"
         characterContainer.appendChild(errorResponse)
-
     }
 }
 

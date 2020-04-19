@@ -7,9 +7,6 @@
 body {
     margin: 0;
     background-color: rgb(205, 205, 214);
-}
-
-.flexContainer {
     font-family: 'Sintony', sans-serif; 
 }
 
@@ -77,4 +74,40 @@ button {
     margin: 2rem;
     display: flex;
     flex-direction: column;
+}
+
+@media (max-device-width: 480px){
+    h1, h2 {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    #aladdin, #winnie, #lionKing {
+        display: none;
+    }
+
+    #getAllCharacters {
+        grid-template-columns: auto;
+        justify-content: center;
+    }
+
+    .all {
+        padding: 0;
+        text-align: center;
+    }
+    .getAndCreate {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media (min-device-width: 481px) and (max-device-width: 1024px){
+    #getAllCharacters {
+        grid-template-columns: auto auto;
+        justify-content: center;
+    }
+
+    #winnie, #lionKing {
+        display: none;
+    }
 }

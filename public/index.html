@@ -9,36 +9,32 @@
     <title>rest-api</title>
 </head>
 <body>
-    <div class=flexContainer>
-        <h1>Rest-Api With Disney Characters</h1>
-        <div class="header">
-            <img id="frost" src="./frost.jpg" style="width: 20em" alt="frost">
-            <img id="aladdin" src="./aladdin.jpg" style="width: 20em" alt="aladdin">
-            <img id="winnie" src="./winnie.jpg" style="width: 20em" alt="winnie">
-            <img id="lionKing" src="./lionKing.jpg" style="width: 20em" alt="lionKing">
-        </div> 
-        <h2>All Characters</h2>
-        <div id="getAllCharacters"></div>
-        <h2>Find And Create</h2>
-        <div class="getAndCreate">
-            <div class="getCharacter">
-                <label for="idInput">Find A Specific Character</label>
-                <input id="idInput" type="number" placeholder="Enter Id">
-                <button id="findOne">Get Disney Character</button>
-                <div id="getOne"></div>
-            </div>
-            <form id="create" method='POST'>
-                <label>Create A New Character</label>
-                <input id="name" name="name" type="text" placeholder="Name">
-                <input id="movie" name="movie" type="text" placeholder="Movie">
-                <input id="bestFriend" name="bestFriend" type="text" placeholder="Best Friend">
-                <button type="submit">Add Disney Character</button>
-                <div id="message"></div>
-            </form>
+    <h1>Rest-Api With Disney Characters</h1>
+    <div class="header">
+        <img id="frost" src="./frost.jpg" style="width: 20em" alt="frost">
+        <img id="aladdin" src="./aladdin.jpg" style="width: 20em" alt="aladdin">
+        <img id="winnie" src="./winnie.jpg" style="width: 20em" alt="winnie">
+        <img id="lionKing" src="./lionKing.jpg" style="width: 20em" alt="lionKing">
+    </div> 
+    <h2>All Characters</h2>
+    <div id="getAllCharacters"></div>
+    <h2>Find And Create</h2>
+    <div class="getAndCreate">
+        <div class="getCharacter">
+            <label for="idInput">Find A Specific Character</label>
+            <input id="idInput" type="number" placeholder="Enter Id">
+            <button id="findOne">Get Disney Character</button>
+            <div id="getOne"></div>
         </div>
-        <div class="createCharacter">
-           
-        </div>
+        <form id="create" method='POST'>
+            <label>Create A New Character</label>
+            <input id="name" name="name" type="text" placeholder="Name">
+            <input id="movie" name="movie" type="text" placeholder="Movie">
+            <input id="bestFriend" name="bestFriend" type="text" placeholder="Best Friend">
+            <button type="submit">Add Disney Character</button>
+            <div id="message"></div>
+        </form>
     </div>
+    <div class="createCharacter"></div>
 </body>
 </html>
