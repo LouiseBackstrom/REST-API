@@ -30,8 +30,14 @@ const characters = [
     {   
         id: 5,
         name: "Simba",
-        movie: "Lion King",
+        movie: "The Lion King",
         bestFriend: "Nala"
+    },
+    {   
+        id: 6,
+        name: "Lightning McQueen",
+        movie: "Cars",
+        bestFriend: "Mater"
     }
 ]
 
