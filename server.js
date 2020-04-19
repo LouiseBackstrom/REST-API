@@ -6,31 +6,31 @@ const characters = [
     {   
         id: 1,
         name: "Elsa",
-        fairyTale: "Frost",
+        movie: "Frost",
         bestFriend: "Anna"
     },
     {   
         id: 2,
         name: "Robin Hood",
-        fairyTale: "Robin Hood",
+        movie: "Robin Hood",
         bestFriend: "Little John"
     },
     {   
         id: 3,
         name: "Winnie the Pooh",
-        fairyTale: "Winnie the Pooh",
+        movie: "Winnie the Pooh",
         bestFriend: "Piglet"
     },
     {   
         id: 4,
         name: "Princess Jasmine",
-        fairyTale: "Aladdin",
+        movie: "Aladdin",
         bestFriend: "Aladdin"
     },
     {   
         id: 5,
         name: "Simba",
-        fairyTale: "Lion King",
+        movie: "Lion King",
         bestFriend: "Nala"
     }
 ]

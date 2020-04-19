@@ -6,20 +6,24 @@ fetch("/characters").then((response) => {
 })
 
 function allCharacters(characters) {
-    let allCharactersContainer = document.getElementById("all")
+    let allCharactersContainer = document.getElementById("getAllCharacters")
     
     characters.forEach(character => {
-        let characterName = document.createElement("h4")
-        characterName.innerText = character.name
-        let characterFairyTale = document.createElement("h4")
-        characterFairyTale.innerText = character.fairyTale
-        let characterBestFriend = document.createElement("h4")
-        characterBestFriend.innerText = character.bestFriend
+        let characterId = document.createElement("h4")
+        characterId.innerText = "Disney Nr : " + character.id
+        let characterName = document.createElement("p")
+        characterName.innerText = "Disney Character: " + character.name
+        let characterMovie = document.createElement("p")
+        characterMovie.innerText = "Disney Movie: " + character.movie
+        let characterBestFriend = document.createElement("p")
+        characterBestFriend.innerText = "Best Friend: " + character.bestFriend
 
         let characterDiv = document.createElement("div")
+        characterDiv.classList.add("all")
         
+        characterDiv.appendChild(characterId)
         characterDiv.appendChild(characterName)
-        characterDiv.appendChild(characterFairyTale)
+        characterDiv.appendChild(characterMovie)
         characterDiv.appendChild(characterBestFriend)
 
         allCharactersContainer.appendChild(characterDiv)
@@ -49,15 +53,18 @@ function printOne(character) {
     characterContainer.innerHTML = ""
 
     if(character) {
-        let characterName = document.createElement("h4")
-        characterName.innerText = character.name
-        let characterFairyTale = document.createElement("h4")
-        characterFairyTale.innerText = character.fairyTale
-        let characterBestFriend = document.createElement("h4")
-        characterBestFriend.innerText = character.bestFriend
+        let characterId = document.createElement("h4")
+        characterId.innerText = "Disney Nr : " + character.id
+        let characterName = document.createElement("p")
+        characterName.innerText = "Disney Character: " + character.name
+        let characterMovie = document.createElement("p")
+        characterMovie.innerText = "Disney Movie: " + character.movie
+        let characterBestFriend = document.createElement("p")
+        characterBestFriend.innerText = "Best Friend: " + character.bestFriend
         
+        characterContainer.appendChild(characterId)
         characterContainer.appendChild(characterName)
-        characterContainer.appendChild(characterFairyTale)
+        characterContainer.appendChild(characterMovie)
         characterContainer.appendChild(characterBestFriend)
 
     } else {
@@ -99,5 +106,5 @@ function createNew(event) {
     createContainer.appendChild(message) 
 
     setTimeout(function () { 
-        window.location.reload() }, 2000)
+        window.location.reload() }, 1000)
 }

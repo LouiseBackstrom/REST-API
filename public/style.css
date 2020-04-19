@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(183, 183, 211);
+}
+
+.flexContainer {
+    font-family: 'Sintony', sans-serif; 
+}
+
+h1, h2 {
+    margin: 1rem 4rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 10rem;
+    object-fit: cover;
+}
+
+#aladdin, #winnie, #lionKing {
+    opacity: 0.6;
+}
+
+#getAllCharacters {
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1rem;
+    justify-content: space-between;
+}
+
+.all {
+    padding: 0 0 0 2rem;
+}
+
+.getAndCreate {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.getCharacter {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 0.2rem;
+}
+
+input {
+    padding: 0.4rem;
+    margin: 0.2rem;
+    width: 20rem;
+    border-radius: 0.2rem;
+    border: none;
+}
+button {
+    padding: 0.4rem;
+    margin: 0.2rem;
+    width: 20rem;
+    border-radius: 0.2rem;
+    border: none;
+}
+
+#create {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
