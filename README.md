@@ -12,5 +12,7 @@ A REST API with Disney characters. The API has functionality for CRUD and there 
 
 ```VS Code extension Rest client for testing```
 
+## GitHub
+
 https://github.com/LouiseBackstrom/rest-api
 

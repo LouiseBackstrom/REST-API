@@ -53,7 +53,7 @@ app.get('/characters', (req, res) => {
 //Read, get one specific character
 app.get('/characters/:id', (req, res) => {
     let character = characters.find((character) => 
-    (character.id.toString() === req.params.id)) 
+    character.id.toString() === req.params.id)
         if(!character) {
             res.status(404).send()
         } else {
@@ -72,8 +72,10 @@ app.post('/characters', (req, res) => {
 
 //Update, update characters
 app.put('/characters/:id', (req, res) => {
-    let updatedCharacter = characters.find((character) => character.id.toString() === (req.params.id))
-    const indexCharacter = characters.findIndex((character) => character.id === updatedCharacter.id)
+    let updatedCharacter = characters.find((character) => 
+    character.id.toString() === req.params.id)
+    const indexCharacter = characters.findIndex((character) => 
+    character.id === updatedCharacter.id)
     updatedCharacter = Object.assign(updatedCharacter, req.body)
     characters[indexCharacter] = updatedCharacter
     res.send(updatedCharacter)
@@ -84,7 +86,7 @@ app.put('/characters/:id', (req, res) => {
 app.delete('/characters/:id', (req, res) => {
 
     let character = characters.find((character) => 
-    (character.id.toString() === req.params.id))
+    character.id.toString() === req.params.id)
     characters.splice(characters.indexOf(character), 1)
     res.json(req.body)
 })

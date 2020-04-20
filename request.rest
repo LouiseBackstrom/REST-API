@@ -2,7 +2,7 @@ GET http://localhost:3000/characters
 
 ###
 
-GET http://localhost:3000/characters/4
+GET http://localhost:3000/characters/2
 
 ###
 
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:3000/characters/6
+PUT http://localhost:3000/characters/7
 Content-Type: application/json
 
 {  
@@ -28,4 +28,4 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:3000/characters/6
+DELETE  http://localhost:3000/characters/7
