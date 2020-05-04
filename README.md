@@ -6,9 +6,9 @@ A REST API with Disney characters. The API has functionality for CRUD and there 
 
 ## Project Setup
 
-```npm install init --yes```
+```npm init -y```
 
-```npm install express --save```
+```npm install express```
 
 ```VS Code extension Rest client for testing```
 
